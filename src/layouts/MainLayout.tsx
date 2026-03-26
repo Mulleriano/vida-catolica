@@ -31,7 +31,7 @@ export default function MainLayout() {
       <footer>
         <BottomNavigation
           value={value}
-          onChange={(event, newValue) => {
+          onChange={(_, newValue) => {
             setValue(newValue);
           }}
           sx={{
