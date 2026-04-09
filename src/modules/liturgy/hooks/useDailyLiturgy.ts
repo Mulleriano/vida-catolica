@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDailyLiturgy } from "../services";
-import type { Liturgy } from "../types";
+import type { Liturgy } from "../types/liturgy";
 
 export function useDailyLiturgy() {
   const [liturgy, setLiturgy] = useState<Liturgy | null>(null);
