@@ -11,6 +11,12 @@ const httpLink = new HttpLink({
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: "cache-first",
+      nextFetchPolicy: "cache-first",
+    },
+  },
 });
 
 function App() {
