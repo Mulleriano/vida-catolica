@@ -11,9 +11,6 @@ const httpLink = new HttpLink({
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
-  defaultOptions: {
-    watchQuery: { fetchPolicy: "no-cache" }, // Para testar sem cache
-  },
 });
 
 function App() {
