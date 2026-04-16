@@ -12,7 +12,10 @@ const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
   defaultOptions: {
-    watchQuery: { fetchPolicy: "no-cache" }, // Para testar sem cache
+    watchQuery: {
+      fetchPolicy: "cache-first",
+      nextFetchPolicy: "cache-first",
+    },
   },
 });
 
