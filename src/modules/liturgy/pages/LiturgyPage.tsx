@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <div className="p-6">
       <button
-        className="w-10 h-10 rounded-full shadow-(--box-shadow) absolute top-4 right-4"
+        className="w-10 h-10 rounded-full shadow-(--box-shadow) absolute top-5 right-5"
         style={{ backgroundColor: getLiturgyHexColor(liturgy.cor) }}
       ></button>
       <Box sx={{ width: "100%", height: "100%" }}>
