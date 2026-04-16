@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
-import Home from "../pages/Home";
-import RosaryPage from "../modules/rosary/pages/RosaryPage";
+/*import Home from "../pages/Home";
+import RosaryPage from "../modules/rosary/pages/RosaryPage";*/
 import LiturgyPage from "../modules/liturgy/pages/LiturgyPage";
 
 export const router = createBrowserRouter([
@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     handle: { name: "Vida Católica" },
     children: [
-      {
+      /*{
         index: true,
         element: <Home />,
       },
@@ -19,9 +19,11 @@ export const router = createBrowserRouter([
         path: "rosary",
         handle: { name: "Terço" },
         element: <RosaryPage />,
-      },
+      },*/
       {
-        path: "liturgy",
+        index: true,
+        //path: "liturgy",
+        path: "/",
         handle: { name: "Liturgia Diária" },
         element: <LiturgyPage />,
       },

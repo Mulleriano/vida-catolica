@@ -1,10 +1,22 @@
-import axios from "axios";
+import { gql } from '@apollo/client';
 
-const LITURGY_API_BASEURL = import.meta.env.VITE_LITURGY_API_BASEURL;
-
-export async function getDailyLiturgy() {
-  
-  const response = await axios.get(LITURGY_API_BASEURL);
-
-  return response.data;
-}
+export const GET_DAILY_LITURGY = gql`
+  query GetDailyLiturgy {
+    liturgiaDoDia {
+      celebracao
+      cor
+      leitura {
+        referencia
+        texto
+      }
+      salmo {
+        referencia
+        texto
+      }
+      evangelho {
+        referencia
+        texto
+      }
+    }
+  }
+`;
