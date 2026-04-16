@@ -18,20 +18,20 @@ function TabPanel({ children, value, index }: TabPanelProps) {
 }
 
 export default function Home() {
-  const { liturgy, loading } = useDailyLiturgy();
+  const { liturgy, loading, error } = useDailyLiturgy();
   const [value, setValue] = React.useState(0);
   const tabs = [
     {
       label: "1ª Leitura",
-      content: liturgy?.leituras.primeiraLeitura?.[0],
+      content: liturgy?.leitura,
     },
     {
       label: "Salmo",
-      content: liturgy?.leituras.salmo?.[0],
+      content: liturgy?.salmo,
     },
     {
       label: "Evangelho",
-      content: liturgy?.leituras.evangelho?.[0],
+      content: liturgy?.evangelho,
     },
   ];
 
@@ -42,14 +42,20 @@ export default function Home() {
   if (loading || !liturgy) {
     return <p>Carregando liturgia...</p>;
   }
-
+  
+  
+  if(error) {
+    alert("Erro ao carregar liturgia. Por favor, tente novamente mais tarde.");
+  }
+  
   return (
     <div className="p-6">
       <button
         className="w-10 h-10 rounded-full shadow-(--box-shadow) absolute top-5 right-5"
         style={{ backgroundColor: getLiturgyHexColor(liturgy.cor) }}
       ></button>
-      <Box sx={{ width: "100%", height: "100%" }}>
+      <h2 className="text-2xl font-bold mb-4">{liturgy.celebracao}</h2>
+      <Box sx={{ width: "100%", height: "100%", marginTop: "1rem" }}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -66,12 +72,6 @@ export default function Home() {
             <TabPanel key={index} value={value} index={index}>
               {!tab.content ? (
                 <p>Leitura não disponível</p>
-              ) : "refrao" in tab.content ? (
-                <>
-                  <h5>{tab.content.referencia}</h5>
-                  <h3>{tab.content.refrao}</h3>
-                  <p className="whitespace-pre-line">{tab.content.texto}</p>
-                </>
               ) : (
                 <>
                   <h3>{tab.content.titulo}</h3>
