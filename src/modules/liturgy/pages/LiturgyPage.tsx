@@ -47,7 +47,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className="max-w-7xl">
       <div className="flex justify-between gap-2 items-center">
         <h2 className="text-2xl font-bold mb-4">{liturgy.celebracao}</h2>
         <button
