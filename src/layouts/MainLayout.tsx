@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-/*import HolySpiritIcon from "../assets/holy-spirit.png";
-import RosaryIcon from "../assets/rosary.png";*/
+import HolySpiritIcon from "../assets/holy-spirit.png";
+import RosaryIcon from "../assets/rosary.png";
 import LiturgyIcon from "../assets/liturgy.png";
 import "./MainLayout.css";
 
@@ -19,7 +19,7 @@ export default function MainLayout() {
   return (
     <div>
       <header>
-        <h1>{name}</h1>
+        <h1 className="text-2xl font-bold">{name}</h1>
 
         <nav></nav>
       </header>
@@ -41,7 +41,8 @@ export default function MainLayout() {
             backgroundColor: "transparent",
           }}
         >
-          {/* <BottomNavigationAction
+          <BottomNavigationAction
+            sx={{ color: "secondary" }}
             label="Home"
             component={Link}
             to="/"
@@ -52,11 +53,10 @@ export default function MainLayout() {
                 style={{ width: 30, height: 30 }}
               />
             }
-          /> 
+          />
           <BottomNavigationAction
             id="rosary"
             label="Terço"
-            showLabel={true}
             component={Link}
             to="/rosary"
             icon={
@@ -66,7 +66,7 @@ export default function MainLayout() {
                 style={{ width: 50, height: 50, marginRight: 5 }}
               />
             }
-          /> */}
+          />
           <BottomNavigationAction
             label="Liturgia"
             component={Link}
