@@ -1,10 +1,14 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const GET_DAILY_LITURGY = gql`
   query GetDailyLiturgy {
     liturgiaDoDia {
       celebracao
-      cor
+      cor {
+        nome
+        hex
+        hexTexto
+      }
       leitura {
         referencia
         texto
