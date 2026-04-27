@@ -36,13 +36,12 @@ export default function MainLayout() {
           }}
           sx={{
             width: "100%",
-            height: "80%",
+            height: "100%",
             alignItems: "end",
             backgroundColor: "transparent",
           }}
         >
           <BottomNavigationAction
-            sx={{ color: "secondary" }}
             label="Home"
             component={Link}
             to="/"
